@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Emacs配置</title>
+  <meta name="description" content="为什么使用Emacs">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Emacs配置">
+  <meta name="twitter:description" content="为什么使用Emacs">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Emacs配置">
+  <meta property="og:description" content="为什么使用Emacs">
+  
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2020/01/Emacs%E9%85%8D%E7%BD%AE/">
+  <link rel="alternate" type="application/rss+xml" title="Jim Xu" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+<!-- 站点统计 -->
+  <script 
+  async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>  
+
+<!-- 百度统计 -->
+  
+
+<!-- google 统计 -->
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9005224472374751",
+    enable_page_level_ads: true
+  });
+</script>
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+      <div class="nav_container">
+	 <nav class="nav-menu-item" style = "float:right">
+	    <i class="nav-menu-item">
+	      <a href="/#blog" title="" class="blog-button">  博客主页
+	      </a>
+	    </i>
+	    
+		<i class="nav-menu-item">
+
+		  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+		      所有文章
+		  </a>
+		</i>
+	    
+		<i class="nav-menu-item">
+
+		  <a href="/about" title="about" class="btn-mobile-menu__icon">
+		      关于我
+		  </a>
+		</i>
+	    
+	  </nav>
+      </div>
+    </span>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">            
+            <a href="/#blog" title="前往 Jim Xu 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2> 
+                            
+                                madahah
+                            
+                        </h2>
+                        <p>
+                           
+                                Linux / Emacs
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for Jim Xu" class="blog-button">Jim Xu</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">不想当厨师的司机不是一个程序员！</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于我</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+	<div class="content-wrapper__inner">
+	    <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">Emacs配置</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/>
+      <time datetime="2020-01-06 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-01-06</time>
+
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
+    </p>
+    </div>
+  </header>
+
+  <section class="post">
+    <h1 id="为什么使用emacs">为什么使用Emacs</h1>
+
+<p>自从开始工作时起，已经使用Emacs作为开发工具大约10年了。有人会问，有那么多开发工具，为什么使用Emacs呢？其实这也尝试过其它工具，但是用起来很不习惯。
+这里我总结了一下我自己的原因：</p>
+
+<ol>
+  <li>支持大多数编程语言，我可以在Emacs里编辑，浏览，调试，不需要来回切换工具；</li>
+  <li>除了编辑代码，很多事情都可以在Emacs中完成，比如读邮件，管理文件等，我只需要在一个界面下就可以完成大多工作；</li>
+  <li>自己扩展Emacs，虽然Emacs内置了强大的编辑功能，但是不一定适合我们每一个人，当你觉得某个功能不好用时或者没有时，
+可以自己修改或编写lisp脚本，来替换或提供相关功能；</li>
+</ol>
+
+<h1 id="基本配置">基本配置</h1>
+
+<p>目前Emacs内置插件已经能够完成相关代码编辑、浏览功能。但是如果想要更好的体验，需要一些额外插件，下面列出相关插件以及功能。</p>
+
+<ol>
+  <li>cedet：分析C/C++文件，提供代码补全，跳转功能，也可以作为其它插件的后端，该插件已经内置到Emacs中。</li>
+  <li>jedi：分析Python文件，提供代码补全，跳转功能。</li>
+  <li>flycheck： 语法分析，即时提示语法错误</li>
+  <li>company: 自动补全插件</li>
+  <li>vc-dir：提供版本管理功能，支持svn，git等多种版本管理软件。</li>
+</ol>
+
+<h3 id="通用">通用</h3>
+
+<p>关于通用设置，我提供了jm-common.el，其中包含基本设置，代码模板，补全插件等。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;; jm-common.el
+
+(add-to-list 'load-path "~/.emacs.d/3rd")
+(add-to-list 'load-path "~/.emacs.d/3rd/company")
+(add-to-list 'load-path "~/.emacs.d/3rd/company-jedi")
+
+(show-paren-mode)
+(global-linum-mode)
+
+(setq  backup-directory-alist
+	   '(("." . "~/.emacs.d/.saves")))
+
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(require 'yasnippet)
+(require 'yasnippet-snippets)
+(yas-minor-mode)
+
+;; markdown
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+; global set keymaps
+(global-set-key "\C-o" 'other-window)
+(global-set-key "\M-k" 'jm-kill-line)
+(global-set-key "\M-l" 'jm-copy-line)
+(global-set-key "\C-\M-k" 'kill-this-buffer)
+
+(global-set-key [f4] 'other-window)
+(global-set-key [f5] 'list-buffers)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
+(provide 'jm-common)
+
+</code></pre></div></div>
+
+<h3 id="cc">C/C++</h3>
+
+<p>我平时大多开发工作都是在Linux下用C来完成。期间也被各种配置搞得头大，其实你了解其工作原理后，配置很简单。下面时我关于C/C++的配置</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;; setting for c/c++
+;; jm-c.el
+
+(semantic-mode)
+(global-ede-mode)
+
+(defun my-cc-hook ()
+  (interactive)
+  (require 'eassist)
+  (hs-minor-mode)
+  (yas-minor-mode)
+  (flycheck-mode)
+  (local-set-key "\C-clm" 'eassist-list-methods)
+  (local-set-key "\C-cle" 'flycheck-list-errors)
+  (local-set-key "\C-chb" 'hs-hide-block)
+  (local-set-key "\C-csb" 'hs-show-block)
+  (local-set-key "\C-cj" 'semantic-ia-fast-jump))
+
+(add-hook 'c-mode-hook 'my-cc-hook)
+(add-hook 'cc-mode-hook 'my-cc-hook)
+
+(provide 'jm-c)
+</code></pre></div></div>
+
+<p>通过上面设置，cedet就会对/usr/include下的文件做正确的处理了，但是对于我们自己的工程，其目录不固定，需要我们告知cedet，因此需要加上下面代码，下面是我自己的两个工程。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;; c/c++ project settings
+(ede-cpp-root-project "cdai" :file "/home/work/mycode/cdi/README.md"
+			  :include-path '("/include" "")
+			  :spp-table '(("MYSQL" . "")
+				   ("POSTGRESQL" . "")))
+
+(ede-cpp-root-project "algorithms" :file "/home/work/algorithms/code/README.md"
+			  :include-path '("/include"))
+
+</code></pre></div></div>
+
+<p>另外需要注意一点，在写代码时，引用系统头文件时，要使用/usr/include下的相对路径，比如我在main.c中使用了mysql.h，而该文件绝对路径为/usr/include/mysql/mysql.h，那我们必须写成</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;mysql/mysql.h&gt;
+/* #include &lt;mysql.h&gt; 这样写会找不到头文件 */
+</code></pre></div></div>
+
+<h3 id="python">Python</h3>
+
+<p>关于python，主要依靠jedi来实现，同时使用autopep8来做静态扫描。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;; for python
+;; jm-python.el
+
+(defun my-python-hook ()
+  (interactive)
+  (require 'python-mode)
+  (require 'jedi)
+  (require 'eassist)
+  (require 'py-autopep8)
+  (require 'company-jedi)
+
+  (yas-minor-mode)
+  (flycheck-mode)
+  (jedi:setup)
+  (add-to-list 'company-backends 'company-jedi)
+  (setq py-autopep8-options '("--max-line-length=100"))
+
+  ;; key binds
+  (local-set-key "\C-cna" 'py-beginning-of-class)
+  (local-set-key "\C-cne" 'py-beginning-of-class)
+  (local-set-key "\C-chb" 'py-hide-block-or-clause)
+  (local-set-key "\C-csb" 'py-show-block-or-clause)
+  (local-set-key "\C-chc" 'py-hide-class)
+  (local-set-key "\C-csc" 'py-show-class)
+
+  (local-set-key "\C-cj" 'jedi:goto-definition)
+  (local-set-key "\C-clm" 'eassist-list-methods)
+  (local-set-key "\C-cle" 'flycheck-list-errors))
+
+(add-hook 'python-mode-hook 'my-python-hook)
+(provide 'jm-python)
+
+</code></pre></div></div>
+
+<h3 id="emacs">.emacs</h3>
+
+<p>emacs在启动时会加载.emacs来设置。我们将前面的插件放在~/.emacs.d/jm目录下，然后在.emacs中加入下面代码</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(add-to-list 'load-path "~/.emacs.d/jm")
+(require 'jm-common)
+(require 'jm-c)
+(require 'jm-python)
+</code></pre></div></div>
+
+
+  </section>
+</article>
+
+<section class="post-comments">
+
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2020/01/Emacs%E9%85%8D%E7%BD%AE/";
+        this.page.identifier = "/2020/01/Emacs%E9%85%8D%E7%BD%AE/";
+    };
+    var disqus_shortname = 'jxu';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+
+  
+
+</section>
+
+
+	</div>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  </body>
+
+</html>
