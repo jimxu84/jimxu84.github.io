@@ -7,6 +7,11 @@ title: 关于我
 
 <p>
 
+email: madahah@126.com
+
+<p>
+
+
 <p>
 
 该博客主题源码在 <a target="_blank" href='https://github.com/leopardpan/leopardpan.github.io/'>Github</a> 上，在此感谢原作者！

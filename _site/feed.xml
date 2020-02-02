@@ -5,9 +5,109 @@
     <description>不想当厨师的司机不是一个程序员！</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Jan 2020 15:40:02 +0800</pubDate>
-    <lastBuildDate>Wed, 08 Jan 2020 15:40:02 +0800</lastBuildDate>
+    <pubDate>Sun, 02 Feb 2020 09:19:51 +0800</pubDate>
+    <lastBuildDate>Sun, 02 Feb 2020 09:19:51 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Http协议详解</title>
+        <description>&lt;p&gt;Http协议是一种无状态的应用层协议，用于客户端和服务端传输HTML，视频等内容，采用请求响应式工作模式。
+无状态表示统一客户端前后两次请求是没有任何关系，服务器不保存不同请求之间的数据。&lt;/p&gt;
+
+&lt;h1 id=&quot;消息格式&quot;&gt;消息格式&lt;/h1&gt;
+
+&lt;h2 id=&quot;http请求&quot;&gt;Http请求&lt;/h2&gt;
+&lt;p&gt;HTTP请求包含三部分：请求行、请求头、请求体。&lt;/p&gt;
+
+&lt;h3 id=&quot;请求行&quot;&gt;请求行&lt;/h3&gt;
+&lt;p&gt;请求行由请求方法，请求URL，协议版本组成，其格式如下：&lt;/p&gt;
+
+&lt;p&gt;Method URL version&lt;/p&gt;
+
+&lt;h4 id=&quot;method&quot;&gt;Method&lt;/h4&gt;
+&lt;p&gt;其具体方法参考后续章节。&lt;/p&gt;
+
+&lt;h4 id=&quot;url&quot;&gt;URL&lt;/h4&gt;
+&lt;p&gt;统一资源定位&lt;/p&gt;
+
+&lt;h4 id=&quot;版本&quot;&gt;版本&lt;/h4&gt;
+&lt;p&gt;HTTP当前主要有HTTP1.0，1.1，2.0，3.0等版本，具体版本相关信息参考后面章节。&lt;/p&gt;
+
+&lt;h3 id=&quot;头部&quot;&gt;头部&lt;/h3&gt;
+&lt;p&gt;头部包含通用头，请求头，实体头
+通用头适用于请求和响应消息，如Date，Cache-Control，Connection等
+请求头只适用于请求消息，如Accept，If-*等。
+实体头用于描述实体相关信息，如Content-Length，Content-Encoding等&lt;/p&gt;
+
+&lt;h3 id=&quot;请求体&quot;&gt;请求体&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;已知长度单一资源体&lt;/li&gt;
+  &lt;li&gt;多资源体，与HTML Forms有关&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;http响应&quot;&gt;Http响应&lt;/h2&gt;
+
+&lt;h3 id=&quot;状态行&quot;&gt;状态行&lt;/h3&gt;
+&lt;p&gt;HTTP响应状态行包括：HTTP版本，状态码，以及可能原因（可选）&lt;/p&gt;
+&lt;h4 id=&quot;状态码&quot;&gt;状态码&lt;/h4&gt;
+&lt;p&gt;状态码用于标识服务器对该请求处理结果，使用100～599，主要分为下面5类，其详细含义参考后续章节。&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;1xx，未使用&lt;/li&gt;
+  &lt;li&gt;2xx，请求成功&lt;/li&gt;
+  &lt;li&gt;3xx，重定向&lt;/li&gt;
+  &lt;li&gt;4xx，客户端错误&lt;/li&gt;
+  &lt;li&gt;5xx，服务器错误&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;头部-1&quot;&gt;头部&lt;/h3&gt;
+&lt;p&gt;响应头部分由三部分组成，通用头部，响应头部，实体头部。其中通用和实体头部与HTTP请求一样，响应头包括Age，Server等。&lt;/p&gt;
+
+&lt;h3 id=&quot;响应体&quot;&gt;响应体&lt;/h3&gt;
+&lt;p&gt;该请求所对应资源内容，如请求资源为HTML文件，那响应体为该文件内容。
+响应体被分为3类：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;已知长度单一资源体，通过Content-Type和Content-Length标识&lt;/li&gt;
+  &lt;li&gt;未知长度单一资源体，通过&lt;/li&gt;
+  &lt;li&gt;多资源体&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;http协议版本&quot;&gt;Http协议版本&lt;/h1&gt;
+
+&lt;h2 id=&quot;10&quot;&gt;1.0&lt;/h2&gt;
+
+&lt;h2 id=&quot;11&quot;&gt;1.1&lt;/h2&gt;
+
+&lt;h2 id=&quot;20&quot;&gt;2.0&lt;/h2&gt;
+
+&lt;h2 id=&quot;30&quot;&gt;3.0&lt;/h2&gt;
+
+&lt;h1 id=&quot;请求方法&quot;&gt;请求方法&lt;/h1&gt;
+
+&lt;h1 id=&quot;http状态码&quot;&gt;HTTP状态码&lt;/h1&gt;
+
+&lt;h1 id=&quot;参考资料&quot;&gt;参考资料&lt;/h1&gt;
+</description>
+        <pubDate>Fri, 31 Jan 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/01/Http%E5%8D%8F%E8%AE%AE%E6%80%BB%E7%BB%93/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/Http%E5%8D%8F%E8%AE%AE%E6%80%BB%E7%BB%93/</guid>
+        
+        <category>Http，Web</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>不平凡的一年</title>
+        <description>&lt;p&gt;2020年新春伊始，便是新型冠状病毒的事情。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 27 Jan 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/01/%E4%B8%8D%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%80%E5%B9%B4/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/01/%E4%B8%8D%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%80%E5%B9%B4/</guid>
+        
+        <category>生活</category>
+        
+        
+      </item>
     
       <item>
         <title>2020年终总结</title>
