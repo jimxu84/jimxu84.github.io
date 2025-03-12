@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>近视 | madahah</title>
+  <title>PostgreSQL代码分析（1） - 代码组织目录 | madahah</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="">
   <meta name="theme-color" content="#10b981">
 
-  <link rel="canonical" href="http://example.com/2025/03/13/%E8%BF%91%E8%A7%86/">
+  <link rel="canonical" href="http://example.com/2025/03/13/PostgreSQL%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%881%EF%BC%89-%E4%BB%A3%E7%A0%81%E7%BB%84%E7%BB%87%E7%9B%AE%E5%BD%95/">
 
   <link rel="shortcut icon" href="/">
 
@@ -18,17 +18,17 @@
 
 
   
-  <meta name="description" content="我的近视史作为一个20多年的高度近视患者，上周终于把眼底激光手术做了，到现在正好一周，感觉还好，没有明显的不适。 我已经记不清是什么时候开始带眼镜的了，大概是在上小学5、6年级时开始的，那时大概200多度，那时候大家都说，眼镜不要一直带，要不然就摘不下来了，所以都是上课时才带。现在想想，真是后悔死了。后来上了初中，高中，几年下来，已经发展到700多度了。那时候获取信息不发达，也不知道怎么保护眼睛，">
+  <meta name="description" content="前言我初次接触PostgreSQL大概是在2006年左右，那时候在学习数据库伦理这门课程，但是当时教学实验是用的SQL Server, 而我的电脑因为安装的Linux系统，无法安装SQL Server，所以就搜索到MySQL与PostgreSQL等开源数据库，我已经记不清选PostgreSQL的具体原因了。后面课程结束了，后面几年也没有太关注过它。 毕业后，阴差阳错的进入关系数据库内核研发领域，我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="近视">
-<meta property="og:url" content="http://example.com/2025/03/13/%E8%BF%91%E8%A7%86/index.html">
+<meta property="og:title" content="PostgreSQL代码分析（1） - 代码组织目录">
+<meta property="og:url" content="http://example.com/2025/03/13/PostgreSQL%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%881%EF%BC%89-%E4%BB%A3%E7%A0%81%E7%BB%84%E7%BB%87%E7%9B%AE%E5%BD%95/index.html">
 <meta property="og:site_name" content="madahah">
-<meta property="og:description" content="我的近视史作为一个20多年的高度近视患者，上周终于把眼底激光手术做了，到现在正好一周，感觉还好，没有明显的不适。 我已经记不清是什么时候开始带眼镜的了，大概是在上小学5、6年级时开始的，那时大概200多度，那时候大家都说，眼镜不要一直带，要不然就摘不下来了，所以都是上课时才带。现在想想，真是后悔死了。后来上了初中，高中，几年下来，已经发展到700多度了。那时候获取信息不发达，也不知道怎么保护眼睛，">
+<meta property="og:description" content="前言我初次接触PostgreSQL大概是在2006年左右，那时候在学习数据库伦理这门课程，但是当时教学实验是用的SQL Server, 而我的电脑因为安装的Linux系统，无法安装SQL Server，所以就搜索到MySQL与PostgreSQL等开源数据库，我已经记不清选PostgreSQL的具体原因了。后面课程结束了，后面几年也没有太关注过它。 毕业后，阴差阳错的进入关系数据库内核研发领域，我">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-03-12T20:39:30.000Z">
-<meta property="article:modified_time" content="2025-03-12T21:28:55.228Z">
+<meta property="article:published_time" content="2025-03-12T21:58:05.000Z">
+<meta property="article:modified_time" content="2025-03-12T23:12:33.970Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="日记">
+<meta property="article:tag" content="database">
 <meta name="twitter:card" content="summary">
 
   <style>
@@ -86,18 +86,18 @@
   <main id="sea-main-wrapper">
     <article class="sea-page-card-wrapper">
   <header class="sea-article-header">
-    <h1 class="sea-article-title">近视</h1>
+    <h1 class="sea-article-title">PostgreSQL代码分析（1） - 代码组织目录</h1>
     
       <div class="sea-post-meta sea-post-meta__center">
         <div class="sea-post-time">
   <svg t="1716964550804" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2621" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M805.49888 981.49888l-602.3168-0.76288c-86.59456-8.192-154.56768-81.3056-154.56768-170.01472L48.6144 291.73248c0-94.1568 76.60032-170.75712 170.7776-170.75712l586.10176 0c94.1568 0 170.73152 76.60032 170.73152 170.75712L976.22528 810.7008C976.2304 904.87296 899.63008 981.49888 805.49888 981.49888L805.49888 981.49888zM219.3664 190.57152c-55.79776 0-101.20192 45.38368-101.20192 101.18144l0 518.96832c0 55.79776 45.40416 101.20704 101.20192 101.20704l586.13248 0c55.77728 0 101.16096-45.40928 101.16096-101.20704L906.65984 291.73248c0-55.79776-45.38368-101.18656-101.16096-101.18656L219.3664 190.54592 219.3664 190.57152zM698.84416 290.51904c-25.60512 0-46.38208-20.77696-46.38208-46.38208l0-158.6688c0-25.6 20.77696-46.38208 46.38208-46.38208 25.6 0 46.38208 20.78208 46.38208 46.38208L745.22624 244.1216C745.22624 269.7472 724.46976 290.51904 698.84416 290.51904L698.84416 290.51904zM315.65824 290.51904c-25.60512 0-46.38208-20.77696-46.38208-46.38208l0-158.6688c0-25.6 20.77696-46.38208 46.38208-46.38208 25.6 0 46.38208 20.78208 46.38208 46.38208L362.04032 244.1216C362.04032 269.7472 341.28896 290.51904 315.65824 290.51904L315.65824 290.51904zM534.8864 794.78784l-44.27264 0c-25.6 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.78208 46.38208 46.38208C581.26848 774.01088 560.4864 794.78784 534.8864 794.78784L534.8864 794.78784zM930.79552 452.608 121.24672 452.608c-25.60512 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.77696-46.38208 46.38208-46.38208l809.5744 0c25.6 0 46.38208 20.77696 46.38208 46.38208C977.2032 431.82592 956.42624 452.608 930.79552 452.608L930.79552 452.608zM327.92576 649.03168l-44.27264 0c-25.6 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.77696 46.38208 46.38208C374.30784 628.25472 353.52576 649.03168 327.92576 649.03168L327.92576 649.03168zM534.8864 649.03168l-44.27264 0c-25.6 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.77696 46.38208 46.38208S560.4864 649.03168 534.8864 649.03168L534.8864 649.03168zM741.27872 649.03168l-44.26752 0c-25.60512 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.77696-46.38208 46.38208-46.38208l44.26752 0c25.60512 0 46.38208 20.77696 46.38208 46.38208C787.6608 628.25472 766.90944 649.03168 741.27872 649.03168L741.27872 649.03168zM327.92576 794.78784l-44.27264 0c-25.6 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.78208 46.38208 46.38208C374.30784 774.01088 353.52576 794.78784 327.92576 794.78784L327.92576 794.78784zM741.27872 794.78784l-44.26752 0c-25.60512 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.77696-46.38208 46.38208-46.38208l44.26752 0c25.60512 0 46.38208 20.78208 46.38208 46.38208C787.6608 774.01088 766.90944 794.78784 741.27872 794.78784L741.27872 794.78784z" p-id="2622"></path></svg>
-  <time datetime="2025-03-12T20:39:30.000Z">2025-03-13</time>
+  <time datetime="2025-03-12T21:58:05.000Z">2025-03-13</time>
 </div>
         
         
   <div class="sea-post-tags">
     <svg t="1716964811431" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6117" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M384 977.152c-20.5312 0-39.8336-7.9872-54.3232-22.4256l-260.4032-260.4032c-14.4896-14.4896-22.4256-33.7408-22.4256-54.3232s7.9872-39.8336 22.4256-54.3232l439.6032-439.6032c24.9344-24.9344 70.2464-43.7248 105.5232-43.7248h230.4c42.3424 0 76.8 34.4576 76.8 76.8v230.4c0 35.2256-18.7904 80.5888-43.6736 105.5232l-439.6032 439.6032a76.1856 76.1856 0 0 1-54.3232 22.4256zM614.4 153.6c-21.248 0-54.272 13.6704-69.2736 28.7232l-439.6032 439.6032c-4.8128 4.8128-7.424 11.2128-7.424 18.1248s2.6624 13.312 7.424 18.0736l260.4032 260.4032c4.8128 4.8128 11.2128 7.424 18.1248 7.424s13.312-2.6624 18.1248-7.424l439.6032-439.6032c15.0016-15.0016 28.7232-48.0768 28.7232-69.3248V179.2a25.6 25.6 0 0 0-25.6-25.6h-230.4z" p-id="6118"></path><path d="M742.4 358.4c-42.3424 0-76.8-34.4576-76.8-76.8S700.0576 204.8 742.4 204.8s76.8 34.4576 76.8 76.8S784.7424 358.4 742.4 358.4z m0-102.4a25.6 25.6 0 1 0 0 51.2 25.6 25.6 0 0 0 0-51.2z" p-id="6119"></path></svg>
-    <a class="tag-link" href="/tags/%E6%97%A5%E8%AE%B0/" rel="tag">日记</a>
+    <a class="tag-link" href="/tags/database/" rel="tag">database</a>
   </div>
 
       </div>
@@ -108,16 +108,182 @@
     
       <div class="sea-article-catalog">
         <h2>Table of contents</h2>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E8%BF%91%E8%A7%86%E5%8F%B2"><span class="toc-number">1.</span> <span class="toc-text">我的近视史</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">获取代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#src"><span class="toc-number">3.</span> <span class="toc-text">src</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#backend"><span class="toc-number">4.</span> <span class="toc-text">backend</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E7%BB%AD"><span class="toc-number">5.</span> <span class="toc-text">后续</span></a></li></ol>
       </div>
     
     <div class="sea-article-content">
-      <h1 id="我的近视史"><a href="#我的近视史" class="headerlink" title="我的近视史"></a>我的近视史</h1><p>作为一个20多年的高度近视患者，上周终于把眼底激光手术做了，到现在正好一周，感觉还好，没有明显的不适。</p>
-<p>我已经记不清是什么时候开始带眼镜的了，大概是在上小学5、6年级时开始的，那时大概200多度，那时候大家都说，眼镜不要一直带，要不然就摘不下来了，所以都是上课时才带。现在想想，真是后悔死了。后来上了初中，高中，几年下来，已经发展到700多度了。那时候获取信息不发达，也不知道怎么保护眼睛，其实当时就应该去医院听听医生的建议。</p>
-<p>2003年高考结束后，听说激光可以治疗近视，摘掉眼镜。我毫不犹豫的选择了做手术。但是偏偏角膜比较薄，医生说只能降低度数，不能完全摘掉眼镜。这时也考虑不了那么多了，直接做。手术倒是挺成功，经过一段时间的恢复，只需要带150度左右的眼镜了。当时感觉真好。万万没想到，后面这些年长期使用电脑，手机，又慢慢的变成800多度了。理论上成年后，眼轴就比较稳定了，但是为什么度数还是会增长呢？在前几年就想检查一下眼底，看是否有其它问题，但是因为各种原因一直没有去检查。</p>
-<p>去年打算重新配眼镜，为了保险起见，选择了医院的视光中心去验光，后面验光结果是矫正视力只能达到0.8左右。医生建议我检查一下眼底，结果发现眼底有个洞，需要打激光。也许是年纪大了，害怕打完激光会导致视力下降。所以当时没有打激光，眼镜也没有配。今年暂时没有上班，正好处理一下各种事情，先把眼镜配好，结果这半年，左眼又有变化，同样的度数，这次只能达到0.6了，验光师再次建议我去检查眼底。终于上周三约了个专家，做了个全面眼底检查，结论跟去年一样，眼底有洞，要打激光。算了，还是做了吧。后面真正做完，好像也没有大不了的。期间媳妇表现很给力。把我当病人一样伺候着。</p>
-<p>说完自己，再说下小朋友。</p>
-<p>以前就比较担心高度近视会遗传给小孩。小孩出生后体检，说是远视储备不足，不知道这算不算遗传。不过现在我们知道怎么样来减缓远视储备消耗。而我那时候都不知道远视储备个什么玩意，也没有人会带你去医院检查，然后告诉你怎么保护眼睛。目前我们只能控制她不看手机，电视等，多带她在户外活动。希望能保护好她那可爱的大眼睛。</p>
+      <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我初次接触PostgreSQL大概是在2006年左右，那时候在学习数据库伦理这门课程，但是当时教学实验是用的SQL Server, 而我的电脑因为安装的Linux系统，无法安装SQL Server，所以就搜索到MySQL与PostgreSQL等开源数据库，我已经记不清选PostgreSQL的具体原因了。后面课程结束了，后面几年也没有太关注过它。</p>
+<p>毕业后，阴差阳错的进入关系数据库内核研发领域，我们在研发某些特性时也会对比一下PostgreSQL和MySQL。但也仅仅是使用一下，没有做代码级别的深入研究。</p>
+<p>第一次研究代码大概是在2012年初，那时我已经工作了三年多，正好赶上PostgreSQL中国用户会创立，想着跟大牛多学习学习，就把代码拉下来，做了一个简单了解，并贡献了一篇关于调试环境搭建的文章。但是后来由于各种原因，没有继续下来。</p>
+<p>这次闲下来了，有大把时间来研究代码了，所以有了这篇以及后续相关文章。</p>
+<h1 id="获取代码"><a href="#获取代码" class="headerlink" title="获取代码"></a>获取代码</h1><p>因为仓库中某些对象太大，导致git clone失败，所以先修改.gitconfig，在文件末尾添加下面内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[http]</span><br><span class="line">        postBuffer = 5242880000</span><br><span class="line">        version = HTTP/1.1</span><br></pre></td></tr></table></figure>
+
+<p>使用下面命令获取代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://git.postgresql.org/git/postgresql.git</span><br></pre></td></tr></table></figure>
+
+<p>下载到本地，进入postgresql目录下，会看到一些脚本和目录，其中src就是代码目录。</p>
+<h1 id="src"><a href="#src" class="headerlink" title="src"></a>src</h1><table>
+<thead>
+<tr>
+<th>目录名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>backend</td>
+<td>后端主要代码目录，包括查询，存储，事务等各个模块功能</td>
+</tr>
+<tr>
+<td>bin</td>
+<td>二进制目录，包括initdb, pg_ctl等</td>
+</tr>
+<tr>
+<td>common</td>
+<td>通用功能如: 加密，归档，压缩等</td>
+</tr>
+<tr>
+<td>include</td>
+<td>头文件目录</td>
+</tr>
+<tr>
+<td>interface</td>
+<td>libpq&#x2F;ecpg 接口</td>
+</tr>
+<tr>
+<td>pl</td>
+<td>plperl&#x2F;plpgsql&#x2F;plpython等相关代码</td>
+</tr>
+<tr>
+<td>port</td>
+<td>跨平台移植相关代码</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>时区相关代码</td>
+</tr>
+<tr>
+<td>tools</td>
+<td>构建相关脚本</td>
+</tr>
+</tbody></table>
+<h1 id="backend"><a href="#backend" class="headerlink" title="backend"></a>backend</h1><table>
+<thead>
+<tr>
+<th>目录名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>access</td>
+<td>各种索引扫描，表扫描，以及事务相关代码</td>
+</tr>
+<tr>
+<td>archive</td>
+<td>wal归档相关代码</td>
+</tr>
+<tr>
+<td>backup</td>
+<td>备份相关代码</td>
+</tr>
+<tr>
+<td>bootstrap</td>
+<td>用于创建初始模板数据库</td>
+</tr>
+<tr>
+<td>catalog</td>
+<td>系统表信息</td>
+</tr>
+<tr>
+<td>commands</td>
+<td>系统命令实现代码</td>
+</tr>
+<tr>
+<td>executor</td>
+<td>执行器实现代码</td>
+</tr>
+<tr>
+<td>foreign</td>
+<td>外部数据</td>
+</tr>
+<tr>
+<td>jit</td>
+<td>just-in-time</td>
+</tr>
+<tr>
+<td>lib</td>
+<td>通用数据结构代码</td>
+</tr>
+<tr>
+<td>libpq</td>
+<td>连接认证相关代码</td>
+</tr>
+<tr>
+<td>main</td>
+<td>postgres程序入口</td>
+</tr>
+<tr>
+<td>nodes</td>
+<td>执行计划节点</td>
+</tr>
+<tr>
+<td>optimizer</td>
+<td>优化器</td>
+</tr>
+<tr>
+<td>parser</td>
+<td>sql解析器</td>
+</tr>
+<tr>
+<td>partitioning</td>
+<td>分区表</td>
+</tr>
+<tr>
+<td>po</td>
+<td>国际化相关po文件</td>
+</tr>
+<tr>
+<td>port</td>
+<td>跨平台相关代码</td>
+</tr>
+<tr>
+<td>postmaster</td>
+<td>后端服务代码，监听客户端连接并创建进程处理连接请求</td>
+</tr>
+<tr>
+<td>regex</td>
+<td>正则表达式代码</td>
+</tr>
+<tr>
+<td>replication</td>
+<td>主备复制</td>
+</tr>
+<tr>
+<td>rewrite</td>
+<td>查询重写</td>
+</tr>
+<tr>
+<td>statistics</td>
+<td>统计信息代码</td>
+</tr>
+<tr>
+<td>storage</td>
+<td>存储相关代码</td>
+</tr>
+<tr>
+<td>tcop</td>
+<td>查询处理执行控制模块</td>
+</tr>
+<tr>
+<td>tsearch</td>
+<td>全文搜索</td>
+</tr>
+<tr>
+<td>utils</td>
+<td>通用功能实现: 如函数功能管理，内存上下文管理，缓存管理等</td>
+</tr>
+</tbody></table>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>本文简单介绍一下代码目录及主要功能，方便后面研究代码或调试时能够快速定位到相关文件。后续会针对不同模块做跟详细的学习。</p>
 
     </div>
   </div>
@@ -126,17 +292,10 @@
     
   <div class="sea-prev-next-wrapper">
     
-      <div class="prev">
-        <span><</span>
-        <a class="link" href="/2025/03/13/PostgreSQL%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%881%EF%BC%89-%E4%BB%A3%E7%A0%81%E7%BB%84%E7%BB%87%E7%9B%AE%E5%BD%95/">
-          PostgreSQL代码分析（1） - 代码组织目录
-        </a>
-      </div>
-    
     
       <div class="next">
-        <a class="link" href="/2025/03/02/2025-03-02/">
-          甲流
+        <a class="link" href="/2025/03/13/%E8%BF%91%E8%A7%86/">
+          近视
         </a>
         <span>></span>
       </div>
