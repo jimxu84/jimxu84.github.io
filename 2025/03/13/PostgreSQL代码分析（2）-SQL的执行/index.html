@@ -25,13 +25,13 @@
 <meta property="og:site_name" content="madahah">
 <meta property="og:description" content="前言上一篇我们介绍了代码的目录结构，这一篇我们将正式开始PostgreSQL的代码之旅。本文主要介绍SQL执行过程中的主要流程和函数， PostgresMainPostgreSQL服务采用的是进程模型， 当有新的客户连接后，会创建一个独立进程来处理用户请求。而这个进程运行的主要代码就是PostgresMain函数，该函数用于接收用户输入的SQL命令并调用后续函数执行SQL 流程 处理相关信号： S">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/yoga/docs/myblogs/source/images/exec_simple_query.png">
+<meta property="og:image" content="http://example.com/images/exec_simple_query.png">
 <meta property="article:published_time" content="2025-03-13T00:21:54.000Z">
-<meta property="article:modified_time" content="2025-03-24T09:05:32.927Z">
+<meta property="article:modified_time" content="2025-03-25T01:09:41.336Z">
 <meta property="article:author" content="Jim Xu">
 <meta property="article:tag" content="PostgreSQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/yoga/docs/myblogs/source/images/exec_simple_query.png">
+<meta name="twitter:image" content="http://example.com/images/exec_simple_query.png">
 
   <style>
     :root {
@@ -136,7 +136,7 @@
 <li>查询执行（CreatePortal&#x2F;PortalRun）</li>
 <li>关闭事务命令(finish_xact_command)</li>
 </ol>
-<p><img src="/yoga/docs/myblogs/source/images/exec_simple_query.png" alt="查询执行流程图"></p>
+<p><img src="/images/exec_simple_query.png" alt="查询执行流程图"></p>
 
     </div>
   </div>
